@@ -1,1 +1,1 @@
-## Ramped Deployment Strategy
+## Rolling Update Deployment Strategy
