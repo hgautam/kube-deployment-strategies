@@ -10,3 +10,8 @@ As part of this demo, we will delete the pods running current version of and the
 2. Delete version 1
 3. Deploy version 2
 4. Validate version 2
+
+### Requirements
+
+1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
+2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
