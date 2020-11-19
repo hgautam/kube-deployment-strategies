@@ -31,5 +31,7 @@ curl $(minikube service demo-app --url)
 ```
 
 4. See the deployment in action. In a different terminal window type the following command
+watch kubectl get po
+Instructions to install watch on mac can be found [here.](https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/)
 
 
