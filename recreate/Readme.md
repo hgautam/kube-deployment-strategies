@@ -38,4 +38,19 @@ $ watch kubectl get po
 
 Instructions to install watch on mac can be found [here.](https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/)
 
+5. Now, deploy version 2 of the application
 
+$ kubectl apply -f app-ver2.yaml
+
+6. Test the second deployment progress
+
+$ service=$(minikube service demo-app --url)
+$ while sleep 1; do curl "$service"; done
+
+7. Delete the app
+
+$ kubectl delete all -l app=demo-app
+
+8. Delete minikube cluster
+
+$ minikube delete
