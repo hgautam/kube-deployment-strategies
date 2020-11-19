@@ -29,7 +29,7 @@ $ kubectl apply -f app-ver1.yaml
 3. Test if the deployment was successful
 ```
 $ curl $(minikube service demo-app --url)
-
+Host: demo-app-698f8b9646-24rv2, Version: v1.0.0
 ```
 
 4. See the deployment in action. In a different terminal window type the following command
