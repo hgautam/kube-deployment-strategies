@@ -12,9 +12,10 @@ As part of this demo, we will delete the pods running current version of and the
 ### Steps to follow
 
 1. Deploy version 1
-1. Validate version 1
-2. Delete version 1 by deploying version 2
-3. Validate version 2
+2. Validate version 1
+3. Delete version 1 by deploying version 2
+4. Validate version 2
+5. Clean up
 
 ### Execution steps
 
@@ -45,6 +46,7 @@ $ kubectl apply -f app-ver2.yaml
 6. Test the second deployment progress
 
 $ service=$(minikube service demo-app --url)
+
 $ while sleep 1; do curl "$service"; done
 
 
