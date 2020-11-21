@@ -6,7 +6,8 @@ As part of this demo, we will delete the pods running current version of and the
 
 ### Steps to follow
 
-1. Check version 1 is active
+1. Deploy version 1
+1. Validae version 1
 2. Delete version 1 by deploying version 2
 3. Validate version 2
 
