@@ -45,9 +45,7 @@ $ kubectl apply -f app-ver2.yaml
 
 6. Test the second deployment progress
 
-$ service=$(minikube service demo-app --url)
-
-$ while sleep 1; do curl "$service"; done
+$ service=$(minikube service demo-app --url); while sleep 1; do curl "$service"; done
 
 
 ## Clean up
