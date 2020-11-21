@@ -4,17 +4,17 @@ Version 1 is deleted and then version 2 is rolled out.
 
 As part of this demo, we will delete the pods running current version of and then deploy a newer version. This implies there will be a downtime for users. The time of downtime will depend on shutdown and boot time of the application.
 
+### Requirements
+
+1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
+2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
 ### Steps to follow
 
 1. Deploy version 1
 1. Validate version 1
 2. Delete version 1 by deploying version 2
 3. Validate version 2
-
-### Requirements
-
-1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
-2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 ### Execution steps
 
@@ -47,10 +47,13 @@ $ kubectl apply -f app-ver2.yaml
 $ service=$(minikube service demo-app --url)
 $ while sleep 1; do curl "$service"; done
 
-7. Delete the app
+
+## Clean up
+
+1. Delete the app
 
 $ kubectl delete all -l app=demo-app
 
-8. Delete minikube cluster
+2. Delete minikube cluster
 
 $ minikube delete
