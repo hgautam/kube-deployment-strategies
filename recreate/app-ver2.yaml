@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app
+  name: go-app
   labels:
-    app: demo-app
+    app: go-app
 spec:
   replicas: 3
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: demo-app
+      app: go-app
   template:
     metadata:
       labels:
-        app: demo-app
+        app: go-app
         version: v2.0.0
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9101"
     spec:
       containers:
-      - name: demo-app
+      - name: go-app
         image: containersol/k8s-deployment-strategies
         ports:
         - name: http
