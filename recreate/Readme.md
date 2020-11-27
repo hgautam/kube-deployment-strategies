@@ -2,7 +2,7 @@
 
 Version 1 is deleted and then version 2 is rolled out.
 
-As part of this demo, we will delete the pods running current version of and then deploy a newer version. This implies there will be a downtime for users. The time of downtime will depend on shutdown and boot time of the application.
+As part of this demo, we will delete the pods running current version of and then deploy a newer version. This implies there will be a downtime for the users. The time of downtime will depend on shutdown and boot time of the application.
 
 ### Requirements
 
