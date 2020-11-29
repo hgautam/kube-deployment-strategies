@@ -31,3 +31,24 @@ $ kubectl apply -f app-ver1.yaml
 $ curl $(minikube service go-app --url)
 
 Host: go-app-d89d6dc79-grdlg, Version: v1.0.0
+
+4. To see the deployment in action, open a new terminal and run the following command:
+
+$ watch kubectl get po
+
+5. Deploy version 2 of the application
+
+$ kubectl apply -f app-ver2.yaml
+
+6. Validate the new deployment
+
+$ service=$(minikube service go-app --url)
+$ while sleep 1; do curl "$service"; done
+
+6. Rollback this deployment
+
+$ kubectl rollout undo deploy go-app
+
+7. Validate the rollbakc
+
+$ while sleep 1; do curl "$service"; done
