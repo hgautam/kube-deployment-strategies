@@ -12,9 +12,11 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 1. Deploy version 1
 2. Validate version 1
 3. Start rolling update
-4. Pause the rollout
-6. Resume the rollout
-7. Validate version 2
+4. Rollback the deployment
+5. Start a new deployment
+6. Pause the deployment
+7. Resume the deployment
+8. Validate version 2
 
 ### Execution steps
 
@@ -49,6 +51,6 @@ $ while sleep 1; do curl "$service"; done
 
 $ kubectl rollout undo deploy go-app
 
-7. Validate the rollbakc
+7. Validate the rollback
 
 $ while sleep 1; do curl "$service"; done
