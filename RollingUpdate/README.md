@@ -28,6 +28,6 @@ $ kubectl apply -f app-ver1.yaml
 
 3. Validate the deployment
 
-$ curl $(minikube service my-app --url)
+$ curl $(minikube service go-app --url)
 
 Host: go-app-d89d6dc79-grdlg, Version: v1.0.0
