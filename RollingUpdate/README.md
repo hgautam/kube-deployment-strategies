@@ -21,7 +21,6 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 ### Execution steps
 
 1. Create a minikube cluster
-
 $ minikube start --memory 2048 --cpus=2
 
 2. Deploy version 1 of the application
