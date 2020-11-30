@@ -25,9 +25,9 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 $ minikube start --memory 2048 --cpus=2
 ```
 2. Deploy version 1 of the application
-
+```
 $ kubectl apply -f app-ver1.yaml
-
+```
 3. Validate the deployment
 
 $ curl $(minikube service go-app --url)
