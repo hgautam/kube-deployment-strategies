@@ -55,3 +55,31 @@ $ kubectl rollout undo deploy go-app
 ```
 $ while sleep 1; do curl "$service"; done
 ```
+8. Start upgrade and pause it immediately to bake it
+```
+$ kubectl apply -f app-ver2.yaml
+$ kubectl rollout pause deploy go-app
+```
+9. Validate active versions. Some pods should show version 2.
+```
+while sleep 1; do curl "$service"; done
+```
+10. Resume upgrade
+```
+$ kubectl rollout resume deploy go-app
+```
+11. Validate running version. All pods should show version 2.
+```
+while sleep 1; do curl "$service"; done
+```
+
+### Cleanup
+
+1. Remove application pods
+```
+$ kubectl delete all -l app=go-app
+```
+2. Delete minikube cluster
+```
+$ minikube delete
+```
