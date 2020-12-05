@@ -44,7 +44,7 @@ spec:
           containerPort: 8086
         env:
         - name: VERSION
-          value: v2.0.0
+          value: v3.0.0
         livenessProbe:
           httpGet:
             path: /live
@@ -55,7 +55,6 @@ spec:
           httpGet:
             path: /ready
             port: probe
-
           # Intial delay is set to a high value to have a better
           # visibility of the rolling update deployment strategy
           initialDelaySeconds: 15

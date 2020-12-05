@@ -55,7 +55,6 @@ spec:
           httpGet:
             path: /ready
             port: probe
-
           # Intial delay is set to a high value to have a better
           # visibility of the rolling update deployment strategy
           initialDelaySeconds: 15
