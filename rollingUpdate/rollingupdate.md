@@ -13,3 +13,5 @@ Main disadvantages are:
 * Rollouts are slower
 * No control over traffic
 * Problematic if application APIs are not backward compatible
+
+Anatomy: A rolling update uses readiness probes to check for the availability of new pods probe before it starts scaling down the old ones. If there is a problem, the rolling update or deployment can be aborted without bringing the whole cluster down. In this sense, it is a controlled way to release new features. 
