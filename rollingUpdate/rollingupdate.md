@@ -6,7 +6,7 @@ A slow rollout or zero downtime rollout. The RollingUpdate strategy is the gener
 
 Main advantages of this approach are:
 * Rollout can be paused and resumed
-* Rollbacks are fairly fast
+* Rollbacks are straight forward
 * Rollouts are slow and controlled
 
 Main disadvantages are:
