@@ -78,6 +78,18 @@ $ kubectl rollout resume deploy go-app
 ```
 while sleep 1; do curl "$service"; done
 ```
+14. Deploy version 3 using best-effort controlled rolling update
+```
+kubectl apply -f app-ver3.yaml
+```
+15. Observe the rollout
+```
+watch kubectl get rs
+```
+16. Validate newly deployed version
+```
+while sleep 1; do curl "$service"; done
+```
 
 ### Cleanup
 
