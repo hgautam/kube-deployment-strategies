@@ -44,33 +44,37 @@ $ watch kubectl get po
 ```
 $ kubectl apply -f app-ver2.yaml
 ```
-6. Validate the new deployment
+6. Observe the deployment
+```
+watch kubectl get rs 
+```
+7. Validate the new deployment
 ```
 $ service=$(minikube service go-app --url)
 $ while sleep 1; do curl "$service"; done
 ```
-6. Rollback this deployment
+8. Rollback this deployment
 ```
 $ kubectl rollout undo deploy go-app
 ```
-7. Validate the rollback
+9. Validate the rollback
 ```
 $ while sleep 1; do curl "$service"; done
 ```
-8. Start upgrade and pause it immediately to bake it
+10. Start upgrade and pause it immediately to bake it
 ```
 $ kubectl apply -f app-ver2.yaml
 $ kubectl rollout pause deploy go-app
 ```
-9. Validate active versions. Some pods should show version 2.
+11. Validate active versions. Some pods should show version 2.
 ```
 while sleep 1; do curl "$service"; done
 ```
-10. Resume upgrade
+12. Resume upgrade
 ```
 $ kubectl rollout resume deploy go-app
 ```
-11. Validate running version. All pods should show version 2.
+13. Validate running version. All pods should show version 2.
 ```
 while sleep 1; do curl "$service"; done
 ```
