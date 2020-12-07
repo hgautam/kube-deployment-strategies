@@ -17,6 +17,8 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 6. Pause the deployment
 7. Resume the deployment
 8. Validate version 2
+9. Start best-effort controlled deployment
+10. Validate version 3
 
 ### Execution steps
 
