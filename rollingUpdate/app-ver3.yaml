@@ -37,6 +37,7 @@ spec:
       containers:
       - name: go-app
         image: aplimasolutions/k8s-deployment-strategies
+        imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 8080
