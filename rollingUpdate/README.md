@@ -50,8 +50,7 @@ watch kubectl get rs
 ```
 7. Validate the new deployment
 ```
-$ service=$(minikube service go-app --url)
-$ while sleep 1; do curl "$service"; done
+$ service=$(minikube service go-app --url);while sleep 1; do curl "$service"; done
 ```
 8. Rollback this deployment
 ```
