@@ -1,1 +1,1 @@
-## k8s-deployment-strategies
+## kube-deployment-strategies
