@@ -31,7 +31,7 @@ Host: demo-app-698f8b9646-24rv2, Version: v1.0.0
 
 # See the deployment in action. In a different terminal window type the following command
 $ watch kubectl get po
-Instructions to install watch on mac can be found at https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/
+# Instructions to install watch on mac can be found at https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/
 
 # Now, deploy version 2 of the application
 $ kubectl apply -f app-ver2.yaml
