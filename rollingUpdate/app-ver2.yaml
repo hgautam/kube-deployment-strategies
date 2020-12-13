@@ -8,8 +8,8 @@ spec:
   replicas: 10
 
   # Here we define the rolling update strategy
-  # - maxSurge define how many pod we can add at a time
-  # - maxUnavailable define how many pod can be unavailable
+  # - maxSurge defines how many pod we can add at a time
+  # - maxUnavailable defines how many pod can be unavailable
   #   during the rolling update
   #
   # Setting maxUnavailable to 0 would make sure we have the appropriate
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: go-app
-        image: aplimasolutions/k8s-deployment-strategies
+        image: aplimasolutions/kube-deployment-strategies
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
