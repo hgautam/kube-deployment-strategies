@@ -37,10 +37,15 @@ deployment "go-app-v2" successfully rolled out
 $ service=$(minikube service go-app --url); while sleep 1; do curl "$service"; done
 
 
-# If necessary, you can manually test one of the pod by port-forwarding it to
-# your local environment.
+# Lets manually test one of the pods by port-forwarding it to our local cluster
+# Select one of the newly created pods and run the following command on a terminal window:
+$ kubectl port-forward pod/go-app-v2-58f7cbc964-vrd5q 8081:8080
 
-# Once your are ready, you can switch the traffic to the new version by patching
+# On a separate terminal window, type the following command:
+$ curl http://localhost:8081
+Host: go-app-v2-58f7cbc964-vrd5q, Version: v2.0.0
+
+# After successfully validating version 2, we can switch the traffic to version 2 by patching
 # the service to send traffic to all pods with label version=v2.0.0
 $ kubectl patch service go-app -p '{"spec":{"selector":{"version":"v2.0.0"}}}'
 
