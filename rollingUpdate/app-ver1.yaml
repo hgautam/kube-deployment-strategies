@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: go-app
-        image: aplimasolutions/k8s-deployment-strategies
+        image: aplimasolutions/kube-deployment-strategies
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
