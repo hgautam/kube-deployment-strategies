@@ -21,82 +21,63 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 10. Validate version 3
 
 ### Execution steps
-
-1. Create a minikube cluster
-```
+```bash
+# Create a minikube cluster
 $ minikube start --memory 2048 --cpus=2
-```
-2. Deploy version 1 of the application
-```
+
+# Deploy version 1 of the application
 $ kubectl apply -f app-ver1.yaml
-```
-3. Validate the deployment
-```
+
+# Validate the deployment
 $ curl $(minikube service go-app --url)
 Host: go-app-d89d6dc79-grdlg, Version: v1.0.0
-```
 
-4. To see the deployment in action, open a new terminal and run the following command:
-```
+# To see the deployment in action, open a new terminal and run the following command:
 $ watch kubectl get po
-```
-5. Deploy version 2 of the application
-```
+
+# Deploy version 2 of the application
 $ kubectl apply -f app-ver2.yaml
-```
-6. Observe the deployment
-```
-watch kubectl get rs 
-```
-7. Validate the new deployment
-```
+
+# Observe the deployment
+$ watch kubectl get rs 
+
+# Validate the new deployment
 $ service=$(minikube service go-app --url);while sleep 1; do curl "$service"; done
-```
-8. Rollback this deployment
-```
+
+# Rollback this deployment
 $ kubectl rollout undo deploy go-app
-```
-9. Validate the rollback
-```
+
+# Validate the rollback
 $ while sleep 1; do curl "$service"; done
-```
-10. Start upgrade and pause it immediately to bake it
-```
+
+# Start upgrade and pause it immediately to bake it
 $ kubectl apply -f app-ver2.yaml
 $ kubectl rollout pause deploy go-app
-```
-11. Validate active versions. Some pods should show version 2.
-```
+
+# Validate active versions. Some pods should show version 2.
 while sleep 1; do curl "$service"; done
-```
-12. Resume upgrade
-```
+
+# Resume upgrade
 $ kubectl rollout resume deploy go-app
-```
-13. Validate running version. All pods should show version 2.
-```
-while sleep 1; do curl "$service"; done
-```
-14. Deploy version 3 using best-effort controlled rolling update
-```
-kubectl apply -f app-ver3.yaml
-```
-15. Observe the rollout
-```
-watch kubectl get rs
-```
-16. Validate newly deployed version
-```
-while sleep 1; do curl "$service"; done
+
+# Validate running version. All pods should show version 2.
+$ while sleep 1; do curl "$service"; done
+
+# Deploy version 3 using best-effort controlled rolling update
+$ kubectl apply -f app-ver3.yaml
+
+# Observe the rollout
+$ watch kubectl get rs
+
+# Validate newly deployed version
+$ while sleep 1; do curl "$service"; done
 ```
 
 ### Cleanup
-
-1. Remove application pods
 ```
+# Remove application pods
 $ kubectl delete all -l app=go-app
-```
-2. Delete minikube cluster
-```
+
+#Delete minikube cluster
 $ minikube delete
 ```
