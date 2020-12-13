@@ -2,6 +2,10 @@
 
 In blue-green deployment strategy, version 2 (green) is deployed alongside version 1 (blue) with exactly the same amount of instances. After testing that version 2 meets all the requirements, the traffic is switched from version 1 to version 2. 
 
+### Requirements
+1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
+2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
 ### Demo steps
 1. version 1 is serving the traffic
 2. deploy version 2 on separate set of pods
