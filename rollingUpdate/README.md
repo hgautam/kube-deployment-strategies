@@ -7,7 +7,7 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
 2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-### Steps to follow
+### Demo Steps
 
 1. Deploy version 1
 2. Validate version 1
@@ -20,7 +20,7 @@ Performs zero downtime upgrade by incrementally upgrading application pods.
 9. Start best-effort controlled deployment
 10. Validate version 3
 
-### Execution steps
+### Demo Details
 ```bash
 # Create a minikube cluster
 $ minikube start --memory 2048 --cpus=2
