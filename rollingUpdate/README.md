@@ -78,6 +78,6 @@ $ while sleep 1; do curl "$service"; done
 # Remove application pods
 $ kubectl delete all -l app=go-app
 
-#Delete minikube cluster
+# Delete minikube cluster
 $ minikube delete
 ```
