@@ -9,7 +9,7 @@ In blue-green deployment strategy, version 2 (green) is deployed alongside versi
 4. switch incoming traffic from version 1 to version 2
 5. delete version 1
 
-### Demo details
+### Demo Details
 
 ```bash
 # Create minikube cluster
