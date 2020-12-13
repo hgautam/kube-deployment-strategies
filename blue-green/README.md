@@ -10,7 +10,8 @@ In blue-green deployment strategy, version 2 (green) is deployed alongside versi
 5. delete version 1
 
 ### Demo details
-```
+
+```bash
 # Create minikube cluster
 $ minikube start --memory 2048 --cpus=2
 
