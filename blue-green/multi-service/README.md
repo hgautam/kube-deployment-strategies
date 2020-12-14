@@ -1,5 +1,19 @@
 ## Multi-service blue-green deployment
+In blue-green deployment strategy, version 2 (green) is deployed alongside version 1 (blue) with exactly the same amount of instances. After testing that version 2 meets all the requirements, the traffic is switched from version 1 to version 2.
 
+### Requirements
+1. Minikube installed. Instructions are found [here.](https://minikube.sigs.k8s.io/docs/start/)
+2. kubectl installed. Instructions are found [here.](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+3. Helm 3 installed. Instructions can be found [here](https://helm.sh/docs/helm/helm_install/)
+
+### Demo Steps
+1. version 1 is serving the traffic
+2. deploy version 2 on separate set of pods
+3. wait until version 2 is ready
+4. switch incoming traffic from version 1 to version 2
+5. delete version 1
+
+### Demo Details
 ```bash
 # Launch minikube cluster
 $ minikube start --memory 2048 --cpus=2
