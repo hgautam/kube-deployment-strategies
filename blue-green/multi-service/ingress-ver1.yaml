@@ -11,12 +11,20 @@ spec:
   - host: a.domain.com
     http:
       paths:
-      - backend:
-          serviceName: go-app-a-v1
-          servicePort: 80
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: go-app-a-v1
+            port: 
+              number: 80
   - host: b.domain.com
     http:
       paths:
-      - backend:
-          serviceName: go-app-b-v1
-          servicePort: 80
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: go-app-b-v1
+            port: 
+              number: 80
