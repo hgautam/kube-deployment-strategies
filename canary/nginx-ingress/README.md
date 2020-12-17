@@ -1,0 +1,1 @@
+## Canary deployment with Nginx Ingress
