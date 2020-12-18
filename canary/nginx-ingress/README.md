@@ -27,4 +27,18 @@ $ kubectl apply -f app-ver2.yaml
 
 # Create a canary ingress in order to split traffic: 90% to v1, 10% to v2
 $ kubectl apply -f ingress-ver2-canary.yaml
+
+# Validate application
+$ while sleep 1; do curl http://$ingress_ip -H "Host: go-app.com"; done
+
+# When you ready, delete the canary ingress
+$ kubectl delete -f ingress-ver2-canary.yaml
+
+# Finish the rollout by setting 100% traffic to version 2
+$ kubectl apply -f ingress-ver2.yaml
+```
+
+### Clean up
+```
+kubectl delete all -l app=go-app
 ```
