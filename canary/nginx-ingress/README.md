@@ -18,4 +18,8 @@ go-app   <none>   go-app.com   192.168.64.77   80      7m45s
 # Validate application
 $ curl http://192.168.64.77 -H "Host: go-app.com"
 Host: go-app-v1-658588dc46-7nchl, Version: v1.0.0
+
+# To see the deployment in action, open a new terminal and run the following
+# command:
+$ watch kubectl get po
 ```
