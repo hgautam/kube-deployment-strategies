@@ -44,7 +44,7 @@ $ service=$(minikube service go-app --url); while sleep 1; do curl "$service"; d
 
 # Lets manually test one of the pods by port-forwarding it to our local cluster
 # Select one of the newly created pods and run the following command on a terminal window:
-$ kubectl port-forward pod/go-app-v2-58f7cbc964-vrd5q 8081:8080
+$ kubectl port-forward go-app-v2-58f7cbc964-vrd5q 8081:8080
 
 # On a separate terminal window, type the following command:
 $ curl http://localhost:8081
