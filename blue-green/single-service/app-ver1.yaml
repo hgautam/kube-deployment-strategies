@@ -57,4 +57,5 @@ spec:
           httpGet:
             path: /ready
             port: probe
+          initialDelaySeconds: 3
           periodSeconds: 5
