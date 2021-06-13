@@ -10,7 +10,6 @@ spec:
   - name: http
     port: 80
     targetPort: http
-
   # this is where we match both the app and the version
   selector:
     app: go-app
