@@ -38,7 +38,7 @@ $ kubectl rollout status deploy go-app-v2 -w
 deployment "go-app-v2" successfully rolled out
 
 # Side by side, 3 pods are running with version 2 but the service object still sending
-# traffic to version. Lets validate:
+# traffic to version 1. Lets validate:
 $ service=$(minikube service go-app --url); while sleep 1; do curl "$service"; done
 
 
