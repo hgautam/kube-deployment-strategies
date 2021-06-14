@@ -21,7 +21,13 @@ $ minikube start --memory 2048 --cpus=2
 
 # Deploy the first application
 $ kubectl apply -f app-ver1.yaml
+# show all resources
+$ kubectl get all
 
+# show labels
+$ kubectl get po --show-labels
+# get service
+$ kubectl get svc
 # Validate the deployment
 $ curl $(minikube service go-app --url)
 Host: go-app-v1-658588dc46-tm2vz, Version: v1.0.0
@@ -33,6 +39,8 @@ $ watch kubectl get po
 # Then deploy version 2 of the application
 $ kubectl apply -f app-ver2.yaml
 
+# check new pods
+$ kubectl get all
 # Wait for all the version 2 pods to be running
 $ kubectl rollout status deploy go-app-v2 -w
 deployment "go-app-v2" successfully rolled out
@@ -45,12 +53,22 @@ $ service=$(minikube service go-app --url); while sleep 1; do curl "$service"; d
 # Lets manually test one of the pods by port-forwarding it to our local cluster
 # Select one of the newly created pods and run the following command on a terminal window:
 $ kubectl port-forward go-app-v2-58f7cbc964-vrd5q 8081:8080
-
 # On a separate terminal window, type the following command:
 $ curl http://localhost:8081
 Host: go-app-v2-58f7cbc964-vrd5q, Version: v2.0.0
 
-# After successfully validating version 2, we can switch the traffic to version 2 by patching
+# alternative way
+# list all pods with ip addresses
+$ kubectl get po -o wide
+# pick the ip of pod running version 2 and run a little test
+kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- http://172.17.0.8:8080
+
+# After successfully validating version 2, we can switch the traffic to version 2 by editing service resource
+# and change the version to 2
+$ kubeclt edit svc go-app
+# validate if the service is pointing to new version
+kubectl describe svc go-app | more
+# Alternatively patching can be applied
 # the service to send traffic to all pods with label version=v2.0.0
 $ kubectl patch service go-app -p '{"spec":{"selector":{"version":"v2.0.0"}}}'
 
