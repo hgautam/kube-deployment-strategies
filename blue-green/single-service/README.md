@@ -65,7 +65,7 @@ kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- http://
 
 # After successfully validating version 2, we can switch the traffic to version 2 by editing service resource
 # and change the version to 2
-$ kubeclt edit svc go-app
+$ kubectl edit svc go-app
 # validate if the service is pointing to new version
 kubectl describe svc go-app | more
 # Alternatively patching can be applied
